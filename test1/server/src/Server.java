@@ -17,7 +17,7 @@ public class Server {
     private static final AtomicLong totalValueLength = new AtomicLong(0);
 
     public static void main(String[] args) throws IOException {
-        // 添加参数验证
+
         if (args.length != 1) {
             System.err.println("Usage: java Server <port>");
             System.exit(1);
@@ -25,7 +25,7 @@ public class Server {
 
         try {
             int port = Integer.parseInt(args[0]);
-            // 剩余代码保持不变...
+
         } catch (NumberFormatException e) {
             System.err.println("Invalid port number: " + args[0]);
             System.exit(2);
@@ -35,7 +35,7 @@ public class Server {
         try (ServerSocket serverSocket = new ServerSocket(port)) {
             System.out.println("Server started on port " + port);
 
-            // 每10秒输出统计信息
+
             ScheduledExecutorService scheduler = Executors.newScheduledThreadPool(1);
             scheduler.scheduleAtFixedRate(Server::printStats, 0, 10, TimeUnit.SECONDS);
 
