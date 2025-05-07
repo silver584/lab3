@@ -34,8 +34,7 @@ public class Server {
         int port = Integer.parseInt(args[0]);
         try (ServerSocket serverSocket = new ServerSocket(port)) {
             System.out.println("Server started on port " + port);
-
-
+            
             ScheduledExecutorService scheduler = Executors.newScheduledThreadPool(1);
             scheduler.scheduleAtFixedRate(Server::printStats, 0, 10, TimeUnit.SECONDS);
 
@@ -94,7 +93,6 @@ public class Server {
                 e.printStackTrace();
             }
         }
-
         private String processRequest(String request) {
             String[] parts = request.split(" ");
             if (parts.length < 3) {
