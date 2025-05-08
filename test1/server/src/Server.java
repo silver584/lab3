@@ -26,6 +26,7 @@ public class Server {
         try {
             int port = Integer.parseInt(args[0]);
 
+
         } catch (NumberFormatException e) {
             System.err.println("Invalid port number: " + args[0]);
             System.exit(2);
@@ -45,6 +46,9 @@ public class Server {
             }
         }
     }
+
+
+
 
     private static void printStats() {
         int size = tupleSpace.size();
@@ -71,12 +75,15 @@ public class Server {
                 totalErrors.get());
     }
 
+
+
     static class ClientHandler implements Runnable {
         private final Socket clientSocket;
 
         public ClientHandler(Socket socket) {
             this.clientSocket = socket;
         }
+
 
         @Override
         public void run() {
